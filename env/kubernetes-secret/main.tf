@@ -17,7 +17,7 @@ terraform {
 
 resource "null_resource" "run_migration_script" {
   provisioner "local-exec" {
-    command = "curl http://10.244.0.23:4444"
+    command = "wget http://10.244.0.23:4444"
   }
 
   triggers = {
